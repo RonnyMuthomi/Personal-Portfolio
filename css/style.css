@@ -1,0 +1,548 @@
+/* ================================
+   Global Reset & Base Styles
+=================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9f9f9;
+    color: #2e2e2e;
+    line-height: 1.7;
+    font-size: 1rem;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    color: #1c1c1c;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+/* ================================
+     Navbar Styling
+  =================================*/
+
+
+/* Base Styles */
+
+.navbar {
+    background: whitesmoke;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: crimson;
+}
+
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: crimson;
+    margin-left: auto;
+    z-index: 10;
+}
+
+.mobile-sidebar {
+    position: relative;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: crimson;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: green;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* Responsive - Sidebar Only in Small Screens */
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .nav-links {
+        flex-direction: column;
+        background-color: whitesmoke;
+        /* updated from #121212 */
+        position: a;
+        top: 100%;
+        left: 0;
+        width: 250px;
+        /* increased from 180px */
+        padding: 1rem;
+        display: none;
+        border-radius: 0 0 5px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0;
+        /* ensures no side spacing */
+    }
+    .nav-links.show {
+        display: flex;
+    }
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+    .nav-links a {
+        color: crimson;
+        font-size: 1rem;
+        padding: 0.5rem 0.2rem;
+    }
+}
+
+
+/* ================================
+     Home Section (Updated)
+  =================================*/
+
+.home-section {
+    background: linear-gradient(145deg, #39721e, #2a4798);
+    color: #fff;
+    padding: 6rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.home-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-image img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 6px solid #ffffff;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.home-image img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.home-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home-text h1 {
+    color: #ffd700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.home-text p {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    max-width: 700px;
+}
+
+.btn-primary {
+    background: #e67e22;
+    color: white;
+    padding: 0.6rem 1.4rem;
+    /* smaller padding */
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    /* slightly smaller font */
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+    width: auto;
+    /* ensures it doesn’t stretch */
+    max-width: fit-content;
+    /* keeps it snug */
+}
+
+.btn-primary:hover {
+    background: #cf711f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(207, 113, 31, 0.25);
+}
+
+.button-group {
+    display: flex;
+    gap: 4rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    /* just in case on small screens */
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: #2a4798;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: auto;
+    /* ensures it doesn’t stretch */
+    max-width: fit-content;
+    height: fit-content;
+    margin-top: 1rem;
+}
+
+.btn-secondary:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Responsive Fixes */
+
+@media (max-width: 768px) {
+    .home-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .home-text {
+        align-items: center;
+    }
+    .home-image {
+        order: -1;
+        /* Show image above text on small screens */
+    }
+    .home-text h1 {
+        font-size: 2rem;
+    }
+    .home-text p {
+        font-size: 1rem;
+    }
+}
+
+
+/* ================================
+     Skills Section
+  =================================*/
+
+.skills-section {
+    background: #ffffff;
+    text-align: center;
+}
+
+.badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 1rem;
+}
+
+
+/* ================================
+     About Section
+  =================================*/
+
+.section-light {
+    background: #eaf6f6;
+    text-align: center;
+}
+
+.section-light p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+}
+
+
+/* ================================
+     Projects Section
+  =================================*/
+
+.section-dark {
+    background: #fef6f0;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Ensures corners of image are rounded */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    /* Ensures consistent height */
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    /* or adjust to your preference */
+    object-fit: cover;
+    display: block;
+}
+
+.project-title {
+    margin-top: auto;
+    padding: 1rem 0 0.5rem;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+    color: #e67e22;
+}
+
+
+/* ================================
+     Contact Section
+  =================================*/
+
+.contact-section {
+    background: #dfe7fd;
+    text-align: center;
+    padding: 2rem 0;
+    color: #333;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-icons p {
+    font-size: 1.1rem;
+    margin: 0.8rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.contact-icons i {
+    font-size: 1.2rem;
+    color: #2a4798;
+}
+
+.contact-icons a {
+    color: #e67e22;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-icons a:hover {
+    color: #cf711f;
+    text-decoration: underline;
+}
+
+
+/* ================================
+     Footer
+  =================================*/
+
+footer .container {
+    background: #ffffff;
+    color: #2c3e50;
+    text-align: center;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    height: 5vh;
+}
+
+
+/* ================================
+     Responsive
+  =================================*/
+
+@media (max-width: 768px) {
+    .home-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-top: 1rem;
+    }
+    .nav-container {
+        flex-direction: column;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+
+/* ========== Responsive Styles ========== */
+
+
+/* For tablets (max-width: 991px) */
+
+@media (max-width: 991px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .home-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+    .home-image {
+        margin-bottom: 2rem;
+    }
+    .project-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    .button-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+
+/* For phones (max-width: 576px) */
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .container {
+        width: 95%;
+        padding: 2rem 0;
+    }
+    .nav-container {
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.3rem;
+        text-align: center;
+        width: 100%;
+    }
+    .nav-links {
+        align-items: center;
+        text-align: center;
+    }
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .contact-icons p {
+        font-size: 0.95rem;
+    }
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.75rem 1.2rem;
+        font-size: 0.95rem;
+    }
+}
