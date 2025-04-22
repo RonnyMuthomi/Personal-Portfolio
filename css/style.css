@@ -38,6 +38,7 @@ h6 {
     font-weight: 700;
     color: #1c1c1c;
     line-height: 1.3;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
 }
 
 h1 {
@@ -62,105 +63,226 @@ h3 {
 
 /* Base Styles */
 
+
+/* NAVBAR */
+
+
+/* Navbar Styles */
+
 .navbar {
-    background: whitesmoke;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #002B3A;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
     z-index: 1000;
 }
 
+
+/* Container inside navbar */
+
 .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 1.5rem;
+}
+
+
+/* Push nav-links to the right */
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin-left: auto;
+}
+
+
+/* Nav link styles */
+
+.nav-links a {
+    transition: color 0.3s ease;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+
+/* Hamburger button (for mobile) */
+
+
+/*.hamburger {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    display: none;
+    /* Hide on desktop, show on mobile 
+
+
+}*/
+
+
+/*.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}*/
+
+.hamburger {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    display: none;
+    /* Hide on desktop, show on mobile */
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100%;
+    width: 250px;
+    background-color: #002B3A;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    padding: 1rem;
+    z-index: 999;
+    overflow: hidden;
+    /* this makes sure nothing leaks out */
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar .close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin: 1rem 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    overflow: hidden;
+    /* prevents weird overflows */
+    transition: color 0.3s ease;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+
+/* HERO SECTION */
+
+.hero {
+    margin-top: 60px;
+    padding: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    position: relative;
+    flex-wrap: wrap;
 }
 
-.logo {
-    font-size: 1.7rem;
-    font-weight: 700;
-    color: crimson;
+.hero-content {
+    max-width: 500px;
 }
 
-.hamburger {
-    display: none;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: crimson;
-    margin-left: auto;
-    z-index: 10;
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
-.mobile-sidebar {
-    position: relative;
+.hero-content p {
+    font-size: 1.2rem;
+    color: #555;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: crimson;
-    font-weight: 500;
-    position: relative;
-    padding-bottom: 4px;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: green;
-    bottom: 0;
-    left: 0;
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
+.hero-img {
     width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-top: 1rem;
 }
 
 
 /* Responsive - Sidebar Only in Small Screens */
 
+
+/* RESPONSIVE STYLES */
+
 @media (max-width: 768px) {
+    /* Hide only navbar nav-links, not sidebar ones */
+    .nav-container .nav-links {
+        display: none;
+    }
     .hamburger {
         display: block;
+        margin-left: auto;
+        color: #FFFFFF;
+        /* push it to the right */
     }
-    .nav-links {
+    .nav-container {
+        justify-content: flex-end;
+        /* ensure hamburger stays right */
+    }
+    .hero {
         flex-direction: column;
-        background-color: whitesmoke;
-        /* updated from #121212 */
-        position: a;
-        top: 100%;
-        left: 0;
-        width: 250px;
-        /* increased from 180px */
-        padding: 1rem;
-        display: none;
-        border-radius: 0 0 5px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin: 0;
-        /* ensures no side spacing */
+        text-align: center;
     }
-    .nav-links.show {
-        display: flex;
+    .hero-content h1 {
+        font-size: 2rem;
     }
-    .nav-links li {
-        margin: 0.5rem 0;
-    }
-    .nav-links a {
-        color: crimson;
+    .hero-content p {
         font-size: 1rem;
-        padding: 0.5rem 0.2rem;
+    }
+    .hero-img {
+        max-width: 100%;
+    }
+    h1,
+    h2,
+    h3,
+    p {
+        text-align: left !important;
+    }
+    .container,
+    .card,
+    .text-wrapper {
+        text-align: left !important;
+        padding: 0 1rem;
     }
 }
 
@@ -170,7 +292,7 @@ h3 {
   =================================*/
 
 .home-section {
-    background: linear-gradient(145deg, #39721e, #2a4798);
+    background: #002B3A;
     color: #fff;
     padding: 6rem 0;
     position: relative;
@@ -194,9 +316,7 @@ h3 {
     width: 100%;
     max-width: 420px;
     height: auto;
-    border-radius: 20px;
     object-fit: cover;
-    border: 6px solid #ffffff;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -225,25 +345,46 @@ h3 {
     max-width: 700px;
 }
 
+
+/*.btn-primary {
+                background: #e67e22;
+                color: white;
+                padding: 0.6rem 1.4rem;
+                smaller padding 
+            
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            /* slightly smaller font 
+        
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
+        transition: all 0.3s ease;
+        display: inline-block;
+        margin-top: 1rem;
+        width: auto;
+        /* ensures it doesn’t stretch 
+
+max-width: fit-content;
+
+/* keeps it snug 
+
+
+}
+*/
+
+
+/* Example color styles (adjust as needed) */
+
 .btn-primary {
     background: #e67e22;
     color: white;
-    padding: 0.6rem 1.4rem;
-    /* smaller padding */
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    /* slightly smaller font */
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
-    transition: all 0.3s ease;
-    display: inline-block;
-    margin-top: 1rem;
-    width: auto;
-    /* ensures it doesn’t stretch */
-    max-width: fit-content;
-    /* keeps it snug */
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: #2a4798;
 }
 
 .btn-primary:hover {
@@ -254,13 +395,31 @@ h3 {
 
 .button-group {
     display: flex;
-    gap: 4rem;
-    margin-top: 1.5rem;
     flex-wrap: wrap;
-    /* just in case on small screens */
+    /* Just in case they need to stack on very small screens */
+    gap: 30px;
+    justify-content: flex-start;
+    margin-top: 1rem;
 }
 
-.btn-secondary {
+
+/* Common button styles for both */
+
+.button-group .btn-primary,
+.button-group .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: 0.3s ease;
+}
+
+
+/* .btn-secondary {
     background: #ffffff;
     color: #2a4798;
     padding: 0.6rem 1.4rem;
@@ -273,11 +432,13 @@ h3 {
     display: inline-block;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: auto;
-    /* ensures it doesn’t stretch */
-    max-width: fit-content;
-    height: fit-content;
-    margin-top: 1rem;
-}
+    ensures it doesn’t stretch 
+
+max-width: fit-content;
+height: fit-content;
+margin-top: 1rem;
+
+}*/
 
 .btn-secondary:hover {
     background: #f0f0f0;
@@ -305,6 +466,44 @@ h3 {
     }
     .home-text p {
         font-size: 1rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+        text-align: left !important;
+        margin-bottom: 0.5rem;
+    }
+    h2 {
+        font-size: 1.25rem;
+        text-align: left !important;
+        margin-bottom: 0.5rem;
+    }
+    h3 {
+        font-size: 1.1rem;
+        text-align: left !important;
+        margin-bottom: 0.5rem;
+    }
+    p {
+        font-size: 0.95rem;
+        text-align: left !important;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+    }
+    .button-group {
+        flex-direction: row;
+        gap: 8px;
+        padding: 0 1rem;
+    }
+    .button-group .btn-primary,
+    .button-group .btn-secondary {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.9rem;
+    }
+    .home-image img {
+        max-width: 85%;
+        height: auto;
+        /* Or try 60% for even smaller size */
+        margin: 1rem auto;
     }
 }
 
@@ -394,44 +593,60 @@ h3 {
     color: #e67e22;
 }
 
-
-/* ================================
-     Contact Section
-  =================================*/
-
 .contact-section {
     background: #dfe7fd;
     text-align: center;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
+    /* reduced from 2rem */
     color: #333;
 }
 
 .contact-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.contact-icons p {
-    font-size: 1.1rem;
-    margin: 0.8rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.6rem;
-}
-
-.contact-icons i {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
+    /* slightly smaller */
+    margin-bottom: 1.2rem;
     color: #2a4798;
 }
 
-.contact-icons a {
-    color: #e67e22;
-    font-weight: 500;
-    transition: color 0.3s ease;
+.contact-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    /* smaller spacing between items */
 }
 
-.contact-icons a:hover {
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1rem;
+    background: #fff;
+    padding: 0.6rem 1rem;
+    /* smaller padding */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    width: 85%;
+    max-width: 360px;
+    transition: transform 0.2s ease;
+}
+
+.contact-item:hover {
+    transform: scale(1.02);
+}
+
+.contact-item i {
+    font-size: 1.1rem;
+    color: #2a4798;
+}
+
+.contact-item a {
+    color: #002B3A;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-item a:hover {
     color: #cf711f;
     text-decoration: underline;
 }
@@ -510,6 +725,47 @@ footer .container {
 
 /* For phones (max-width: 576px) */
 
+@media (max-width: 1200px) {
+    .container {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    .card {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 24px;
+    }
+    .card {
+        flex-direction: column;
+    }
+    .card img {
+        max-height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 22px;
+        text-align: center;
+    }
+    .container {
+        padding: 10px;
+    }
+    .card {
+        gap: 10px;
+    }
+}
+
 @media (max-width: 576px) {
     h1 {
         font-size: 2rem;
@@ -544,5 +800,40 @@ footer .container {
     .btn-secondary {
         padding: 0.75rem 1.2rem;
         font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-wrapper {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        scroll-snap-type: x mandatory;
+    }
+    .card {
+        flex: 0 0 80%;
+        scroll-snap-align: start;
+    }
+    h1 {
+        font-size: 1.5rem;
+        text-align: left !important;
+        margin-bottom: 0.5rem;
+    }
+    h2 {
+        font-size: 1.25rem;
+        text-align: left !important;
+        margin-bottom: 0.5rem;
+    }
+    h3 {
+        font-size: 1.1rem;
+        text-align: left !important;
+        margin-bottom: 0.5rem;
+    }
+    p {
+        font-size: 0.95rem;
+        text-align: left !important;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
     }
 }
