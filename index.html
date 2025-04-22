@@ -7,30 +7,35 @@
     <title>Ronny Muthomi | Data Analyst Portfolio</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yH8E/0YVZKN6Jq9XxLf7uAWU2+Gu5MyP4TYVD8MCz7C/vw8B97kR6QJcgDwNdZ99EJ9dTjACwWiEGcT6Ic1Lkw==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
-
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
+    <!-- NAVBAR -->
     <header class="navbar">
-        <div class="container nav-container">
-            <div class="logo">Ronny Muthomi</div>
+        <div class="nav-container">
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
 
             <button class="hamburger" id="hamburger">&#9776;</button>
-
-            <nav class="mobile-sidebar">
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
 
+    <!-- SIDEBAR MENU -->
+    <aside class="sidebar mobile-sidebar" id="sidebar">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </aside>
 
+    <!-- HOME SECTION -->
     <section id="home" class="home-section">
         <div class="container home-grid">
             <div class="home-image">
@@ -48,17 +53,16 @@
                     I'm open to internships, collaborations, and entry-level roles where I can grow while contributing to meaningful data projects. Let’s connect!
                 </p>
 
-
                 <div class="button-group">
                     <a href="#projects" class="btn-primary">View Projects</a>
-                    <a href="docs/personal cv.pdf" download class="btn-secondary">📄 Download Resume</a>
+                    <a href="docs/personal cv.pdf" download class="btn-secondary">Download Resume</a>
                 </div>
-
             </div>
         </div>
     </section>
 
 
+    <!-- SKILLS SECTION -->
     <section id="skills" class="skills-section">
         <div class="container">
             <h2>⚡ Technologies & Tools</h2>
@@ -77,6 +81,7 @@
         </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about" class="section-light">
         <div class="container">
             <h2>About Me</h2>
@@ -94,11 +99,10 @@
             <p>
                 Feel free to check out my projects below I’m always open to feedback, collaboration, or connecting with fellow data enthusiasts!
             </p>
-
-
         </div>
     </section>
 
+    <!-- PROJECTS SECTION -->
     <section id="projects" class="section-dark">
         <div class="container">
             <h2>Projects</h2>
@@ -115,14 +119,12 @@
                     </a>
                     <p class="project-title">Medical Insurance Model</p>
                 </div>
-
                 <div class="project-card">
                     <a href="https://github.com/RonnyMuthomi/dsc-phase1-project" target="_blank">
                         <img src="images/Aviation risk.jpg" alt="Aviation risk" />
                     </a>
                     <p class="project-title">Aviation Risk Prediction</p>
                 </div>
-
                 <div class="project-card">
                     <a href="https://github.com/RonnyMuthomi/Fraud-detection" target="_blank">
                         <img src="images/creadit card fraud.jpg" alt="creadit card" />
@@ -133,6 +135,7 @@
         </div>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contact" class="contact-section">
         <div class="container">
             <h2>Contact</h2>
@@ -146,12 +149,13 @@
         </div>
     </section>
 
-
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p>&copy; 2025 Ronny Muthomi. All rights reserved.</p>
         </div>
     </footer>
+
 
     <script src="./script/script.js"></script>
 </body>
