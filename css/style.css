@@ -96,6 +96,23 @@ h3 {
 
 /* Push nav-links to the right */
 
+
+/* Import the Great Vibes font */
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+.logo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: #ffcc00;
+    /* Optional: golden tone to match your branding */
+    cursor: pointer;
+}
+
+.logo:hover {
+    color: #ffd633;
+    /* Subtle hover effect */
+}
+
 .nav-links {
     display: flex;
     gap: 20px;
@@ -532,13 +549,55 @@ margin-top: 1rem;
 
 .section-light {
     background: #eaf6f6;
-    text-align: center;
+    padding: 40px 20px;
 }
 
-.section-light p {
-    max-width: 800px;
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1100px;
     margin: 0 auto;
+    flex-wrap: wrap;
+    /* Makes it responsive on small screens */
+}
+
+.about-text {
+    flex: 1 1 55%;
     font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.about-text h2 {
+    margin-bottom: 15px;
+}
+
+.about-image {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text,
+    .about-image {
+        flex: 1 1 100%;
+    }
 }
 
 
@@ -650,6 +709,65 @@ margin-top: 1rem;
 .contact-item a:hover {
     color: #cf711f;
     text-decoration: underline;
+}
+
+
+/* Tools */
+
+.tools h2,
+.skills h2,
+.projects h2 {
+    margin: 0 0 18px 0
+}
+
+.tool-group {
+    margin: 18px 0 24px 0
+}
+
+.tool-group h3 {
+    color: var(--muted);
+    margin: 0 0 10px 0;
+    font-weight: 600
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+@media (max-width: 920px) {
+    .tool-grid {
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+@media (max-width: 640px) {
+    .tool-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+.tool-card {
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.tool-card .icon {
+    font-size: 26px
+}
+
+.tool-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(110, 123, 255, .45);
+    box-shadow: var(--shadow);
 }
 
 
