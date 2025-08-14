@@ -1798,3 +1798,59 @@ footer .container {
         padding: 0 1rem;
     }
 }
+
+
+/* Default layout (desktop) */
+
+.home-grid {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+/* Button group default style */
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+
+/* Mobile adjustments */
+
+@media (max-width: 768px) {
+    .home-grid {
+        flex-direction: column;
+        /* Stack elements vertically */
+    }
+    /* Force this paragraph to align left */
+    .home-text p:first-of-type {
+        text-align: left;
+    }
+    /* Reverse the order so text comes first */
+    .home-text {
+        order: 1;
+    }
+    .home-image {
+        order: 2;
+    }
+    /* Make buttons sit side-by-side and resize them */
+    .button-group {
+        flex-direction: row;
+        /* Keep buttons horizontal */
+        justify-content: center;
+        flex-wrap: wrap;
+        /* Allow wrapping if needed */
+    }
+    .button-group a {
+        flex: 1 1 auto;
+        /* Buttons resize automatically */
+        text-align: center;
+        padding: 0.6rem 1rem;
+        /* Slightly smaller padding */
+        font-size: 0.9rem;
+        /* Reduce font size for mobile */
+    }
+}
